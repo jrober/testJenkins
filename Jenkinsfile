@@ -1,6 +1,11 @@
-cmakeBuild
-      buildDir: 'build',
-      installation: 'InSearchPath'
-      steps: [
-          [args: 'all install', envVars: 'DESTDIR=${WORKSPACE}/artifacts']
-      ]
+Jenkinsfile (Declarative Pipeline)
+pipeline {
+    agent { docker { image 'python:3.5.1' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'python --version'
+            }
+        }
+    }
+}
