@@ -1,10 +1,6 @@
-pipeline {
-    agent { label 'my_label' docker { image 'python:3.5.1' } }
-    stages {
-        stage('build') {
-            steps {
-                sh 'python --version'
-            }
-        }
-    }
-}
+cmakeBuild
+      buildDir: 'build',
+      installation: 'InSearchPath',
+      steps: [
+          [args: 'all install', envVars: 'DESTDIR=${WORKSPACE}/artifacts']
+      ]
