@@ -1,6 +1,6 @@
 cmakeBuild
-      generator: 'Ninja',
       buildDir: 'build',
+      installation: 'InSearchPath'
       steps: [
-          [args: 'all install']
+          [args: 'all install', envVars: 'DESTDIR=${WORKSPACE}/artifacts']
       ]
