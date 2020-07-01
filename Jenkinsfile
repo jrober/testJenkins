@@ -3,8 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-            		cmakeBuild 
-            		buildDir: 'build', 
+            		cmakeBuild buildDir: 'build', 
             		buildType: 'Release', 
             		cleanBuild: true, 
             		//generator: 'Ninja', 
