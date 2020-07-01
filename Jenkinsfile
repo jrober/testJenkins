@@ -3,10 +3,18 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'mkdir build'
-                sh 'cd build'
-                sh 'cmake ..'
-                sh 'cmake --build .' 
+                cmake {
+	            	cmakeInstallation('InSearchPath')
+		           //generator('Unix Makefiles')
+		            cleanBuild()
+		            //sourceDir('src')
+		            buildDir('build')
+		            args('-DVIDEO=ON')
+		            buildToolStep {
+		                vars('--target', 'install')
+		                useCmake()
+		            }
+        		}		
             }
         }
     }
