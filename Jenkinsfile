@@ -1,9 +1,12 @@
 pipeline {
     agent any 
     stages {
-        stage('Stage 1') {
+        stage('build') {
             steps {
-                echo 'Hello world!' 
+                sh 'mkdir build'
+                sh 'cd build'
+                sh 'cmake ..'
+                sh 'cmake --build .' 
             }
         }
     }
