@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage('build') {
             steps {
-            		def test = "1"
             		cmakeBuild buildDir: 'build', 
             		cmakeArgs: '-DVIDEO=ON -DTEST=ON',
             		buildType: 'Release', 
