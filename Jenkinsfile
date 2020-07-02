@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
             		cmakeBuild buildDir: 'build', 
-            		cmakeArgs: 'DVIDEO=ON -DTEST=ON'
+            		cmakeArgs: 'DVIDEO=ON -DTEST=ON',
             		buildType: 'Release', 
             		cleanBuild: true, 
             		//generator: 'Ninja', 
